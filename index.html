@@ -29,20 +29,11 @@
     function execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function (data) {
-                var jibunAddress = ""
-
-                if (data.jibunAddress == "") {
-                    jibunAddress = data.autoJibunAddress
-                } else if (data.autoJibunAddress == "") {
-                    jibunAddress = data.jibunAddress
-                }
-
                 var postData = {
-                    address: data.address,
-                    jibunAddress: jibunAddress,
-                    bcode: data.bcode,
-                    userSelectedType: data.userSelectedType,
-                    roadname: data.roadname,
+                    address1: data.roadname,
+                    address2: data.buildingName,
+                    city: data.sido + data.sigungu,
+                    zipcode: data.zonecode,
                     bname: data.bname
                 };
                 if (getPlatform() === 'AOS') {
