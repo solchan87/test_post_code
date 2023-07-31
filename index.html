@@ -30,11 +30,9 @@
         new daum.Postcode({
             oncomplete: function (data) {
                 var postData = {
-                    address1: data.roadname,
+                    address1: data.roadAddress,
                     address2: data.buildingName,
-                    city: data.sido + data.sigungu,
-                    zipcode: data.zonecode,
-                    bname: data.bname
+                    zipcode: data.zonecode
                 };
                 if (getPlatform() === 'AOS') {
                     window.postMessageToAOS(postData);
